@@ -57,7 +57,7 @@ def get_weather():
         cityCodes.append(x["CityCode"])
 
     # define the opeanweatherapi key
-    API_KEY = '002696c65f8c7d7a510696f90bc40926'
+    API_KEY = env.get("OPENWEATHER_API_KEY")
 
     # generate the url
     url = "http://api.openweathermap.org/data/2.5/group?id=" + ",".join(cityCodes) + "&units=metric&appid="+ API_KEY
@@ -83,9 +83,12 @@ def get_weather():
 
 @app.route("/login")
 def login():
-    return oauth.auth0.authorize_redirect(
-        redirect_uri=url_for("callback", _external=True)
-    )
+    if session.get('user') is not None:
+        return redirect(url_for('home'))
+    else:
+        return oauth.auth0.authorize_redirect(
+            redirect_uri=url_for("callback", _external=True)
+        )
 
 # After logging in with Auth0, the user would be returned to the callback route
 # Here, the session of the user is saved so that, the user wont have to
