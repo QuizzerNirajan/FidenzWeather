@@ -1,0 +1,32 @@
+.display-1
+{
+text-align: center;
+
+}
+
+.display-2
+{
+text-align: center;
+
+}
+
+.login{
+    margin-top: 100px;
+    text-align:center;
+}
+
+.login-button{
+    margin-top: 50px;
+    font-size: 100px;
+
+    text-align: center;
+}
+
+
+.logout-button, .climate-button{
+    margin-top: 50px;
+    font-size: 50px;
+    text-align:center;
+}
+
+

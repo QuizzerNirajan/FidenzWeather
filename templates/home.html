@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="./static/style.css" />
+
+    <title>Weather API</title>
+  </head>
+  <body>
+    <h1 class="display-1">Weather APP</h1>
+    {% if session %}
+    <h1 class = "display-2">Welcome {{session.userinfo.name}}!</h1>
+
+    <p class="logout-button"><a href="/logout">Logout</a></p>
+
+
+    <p class="climate-button"><a href="/climate">Show the clmate</a></p>
+    
+    
+    {% else %}
+    <h1 class="login"> Welcome! Please login to access the application</h1>
+    <p class="login-button"><a href="/login">Login</a></p>
+    {% endif %}
+  </body>
+</html>
